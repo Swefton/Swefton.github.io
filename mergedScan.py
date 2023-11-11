@@ -1,3 +1,6 @@
+# merges functionality from barScan.py and pictureClick.py into one script
+# also uses a phone camera instead of the inbuilt webcam
+
 import cv2
 from pyzbar.pyzbar import decode
 
