@@ -1,3 +1,5 @@
+#source: https://stackoverflow.com/questions/34588464/python-how-to-capture-image-from-webcam-on-click-using-opencv
+
 import cv2
 
 cam = cv2.VideoCapture(1)
