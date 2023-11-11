@@ -1,3 +1,5 @@
+# soure: https://www.geeksforgeeks.org/how-to-make-a-barcode-reader-in-python/#
+
 import cv2
 from pyzbar.pyzbar import decode
   
@@ -40,5 +42,5 @@ def BarcodeReader(image):
  
 if __name__ == "__main__":
   # Take the image from user
-    image="IMG_4810.jpg"
+    image="IMG_4810.jpg" # image goes here
     BarcodeReader(image)
