@@ -11,7 +11,9 @@ uri = ""
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 counter = random.randint(2, 10000)
-LOCATION = "EVENT"
+LOCATION = input("Enter location (MUST MATCH MAP LOCATION): ")
+#LOCATION = hash(LOCATION)
+
 
 def BarcodeReader(image):
     img = cv2.imread(image)
@@ -84,14 +86,14 @@ while True:
         try:
             item = {
                 "_id": random.randint(2, 10000),
-                "user": hash(data),
-                "loca": LOCATION
+                "user": hash(data)
             }
     
-            db = client['people']
-            coll = db["users"]
+            db = client['users']
+            coll = db[LOCATION]
         
             coll.insert_many([item])
         except Exception as e:
+            print(e)
             quit()
 
