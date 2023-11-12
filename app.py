@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 import random
 import json
 
-uri = ""
+uri = "mongodb+srv://backupofamrittoo:5aoCkc2tOsvpgkfx@amtesting.imkz74p.mongodb.net/?retryWrites=true&w=majority"
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 
@@ -14,18 +14,15 @@ app = Flask(__name__)
 def landing():
     return render_template('landing.html')
 
-@app.route('/map', methods=["POST"])
+@app.route('/events')
 def index():
     db = client['events']
     coll = db["deets"]
-
-    heatData = dict()
-    
-    with open('data.txt', 'w') as file:
-        json.dump(heatData, file)
-
-    data_json = json.dumps(heatData)
-    return render_template('index.html', temp="test")
+    data = coll.find()
+    sol = []
+    for document in coll.find():
+        sol.append([document['location'], document['attending'], document['space'], document['lat'], document['lon']])
+    return render_template('events.html', data=sol)
 
 @app.route('/login', methods=['POST'])
 def process_input():

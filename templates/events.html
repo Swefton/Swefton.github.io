@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Listing</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .event-info {
+      margin-bottom: 5px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    .event-info span {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    .event-button {
+      color: #007bff;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .event-button:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Event Listing</h1>
+  <ul>
+    {% for i in data %}
+      <li>
+        <div class="event-info">
+          <span>Event:</span> {{ i[0] }}
+        </div>
+        <div class="event-info">
+          <span>Attending:</span> {{ i[1] }}
+        </div>
+        <div class="event-info">
+          <span>Capacity:</span> {{ i[2] }}
+        </div>
+        <br>
+        <a href="/map" class="event-button">Check Out Event</a>
+      </li>
+      <br>
+    {% endfor %}
+  </ul>
+</body>
+</html>
