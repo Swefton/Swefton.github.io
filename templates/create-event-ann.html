@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Create Account</title>
+    <title>Create Account</title>
     <style>
         body {
             font-family: sans-serif;
@@ -19,7 +19,7 @@
             height: 100vh;
         }
 
-        .login-form {
+        .create-account-form {
             display: flex;
             flex-direction: column;
             width: 300px;
@@ -28,49 +28,47 @@
             box-shadow: 0 0 10px #ccc;
         }
 
-        .login-form label {
+        .create-account-form label {
             display: block;
             margin-bottom: 10px;
         }
 
-        .login-form input {
+        .create-account-form input {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
 
-        .login-form button {
+        .create-account-form button {
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             background-color: #04AA6D;
             color: white;
         }
-
-        .create-event {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .create-event a {
-            text-decoration: none;
-            color: #04AA6D;
-        }
     </style>
 </head>
 <body>
 <div class="container">
-    <form class="login-form" action="/login" method="post">
-        <label for="secretkey">Event Secret Key:</label>
-        <input type="text" id="secretkey" name="secretkey" required>
-        <button type="submit">Submit</button>
+    <form id = "create-account-form" class="create-account-form" action="/create-event-submit" method="post">
+        <label for="eventname">Event Name:</label>
+        <input type="eventname" id="eventname" name="eventname" required>
+
+        <label for="lat">Latitude:</label>
+        <input type="lat" id="lat" name="lat" required>
+
+        <label for="long">Longitude:</label>
+        <input type="long" id="long" name="long" required>
+
+        <button type="submit">Create Event</button>
     </form>
-
-    <div class="create-event">
-        <p>Want to create an event?</p>
-        <a href="/create-event" id="createEventLink">Create Event</a>
-      </div>      
 </div>
-
+<script>
+    window.onload = function() {
+      alert("Your Secure Code is: {{ announcement }}");
+      location.href = "/organizer-login.html"; // Replace with desired redirect URL
+    };
+  </script>
 </body>
+</html>

@@ -1,4 +1,12 @@
 from flask import Flask, render_template, request
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+import random
+
+
+uri = "mongodb+srv://backupofamrittoo:5aoCkc2tOsvpgkfx@amtesting.imkz74p.mongodb.net/?retryWrites=true&w=majority"
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
 
 app = Flask(__name__)
 
@@ -8,14 +16,48 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def process_input():
-  # Retrieve the user's input from the form data
-  user_input = request.form['secretkey']
-  # Render the template to display the processed data
-  return render_template('organizer-event.html', data=user_input)
+    # Retrieve the user's input from the form data
+    secret_key = request.form['secretkey']
+    db = client['events']
+    coll = db["deets"]
+    event_keys = [str(x) for x in coll.distinct('sec')]
+    if secret_key in event_keys:
+        event_details = coll.find_one({'sec': int(secret_key)})
+        print(event_details)
+        return render_template('organizer-event.html', data=event_details)
+    else:
+        return render_template('not-found.html')
 
 @app.route('/create-event')
 def create_event():
     return render_template('create-event.html')
+
+@app.route('/create-event-submit', methods=['POST'])
+def submit_event():
+    event_name = request.form['eventname']
+    hashK = hash(event_name)
+    lat = request.form['lat']
+    long = request.form['long']
+
+    item = {
+    "_id": random.randint(2, 1000000),
+    "sec": hashK,
+    "location": event_name,
+    "lat": float(lat),
+    "lon": float(long),
+    "announcements": [],
+    "attending": 0,
+    "space": 999,
+    "waitlist": 0,
+    }
+    db = client['events']
+    coll = db["deets"]
+    coll.insert_many([item])
+    return render_template('create-event-ann.html',announcement=item['sec'])
+
+@app.route('/organizer-login.html')
+def organizer_login():
+    return render_template('organizer-login.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

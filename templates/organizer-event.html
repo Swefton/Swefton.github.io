@@ -1,9 +1,82 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <title>Processed Data</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    div.announcements {
+      background-color: lightblue;
+      width: 110px;
+      height: 110px;
+      overflow: auto;
+    }
+
+  </style>
 </head>
 <body>
   <h1>Processed Data</h1>
-  <p>{{ data }}</p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <td>{{ data._id }}</td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td>{{ data.location }}</td>
+    </tr>
+    <tr>
+      <th>Latitude</th>
+      <td>{{ data.lat }}</td>
+    </tr>
+    <tr>
+      <th>Longitude</th>
+      <td>{{ data.lon }}</td>
+    </tr>
+  </table>
+
+  <h2>Update Values</h2>
+  <form>
+    <label for="category1">Event Name:</label>
+    <input type="text" id="category1" name="category1">
+    <br>
+
+    <label for="category2">Latitude:</label>
+    <input type="text" id="category2" name="category2">
+    <br>
+
+    <label for="category3">Longitude:</label>
+    <input type="text" id="category3" name="category3">
+    <br>
+
+    <button type="submit">Update Categories</button>
+  </form>
+
+  <h2>announcements</h2>
+  <div class="announcements">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
 </body>
 </html>
