@@ -2,6 +2,7 @@ from flask import Flask, render_template, request,jsonify
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import random
+import json
 
 uri = ""
 # Create a new client and connect to the server
@@ -10,15 +11,21 @@ client = MongoClient(uri, server_api=ServerApi('1'))
 app = Flask(__name__)
 
 @app.route('/')
+def landing():
+    return render_template('landing.html')
+
+@app.route('/map', methods=["POST"])
 def index():
     db = client['events']
     coll = db["deets"]
 
-    allData = coll.find()
-    for document in coll.find():
-        pass
+    heatData = dict()
+    
+    with open('data.txt', 'w') as file:
+        json.dump(heatData, file)
 
-    return render_template('index.html', location="yes")
+    data_json = json.dumps(heatData)
+    return render_template('index.html', temp="test")
 
 @app.route('/login', methods=['POST'])
 def process_input():

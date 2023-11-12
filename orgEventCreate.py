@@ -43,7 +43,7 @@ def search():
     for document in coll.find():
         print(document)
     
-    {'_id': 729068, 'sec': 4994436083811529148, 'location': 'MadHacks', 'lat': 47.0, 'lon': 43.2, 'announcements': [], 'attending': 0, 'space': 999, 'waitlist': 0}
+    # {'_id': 729068, 'sec': 4994436083811529148, 'location': 'MadHacks', 'lat': 47.0, 'lon': 43.2, 'announcements': [], 'attending': 0, 'space': 999, 'waitlist': 0}
     
 
 

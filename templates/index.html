@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UWM Map Heatmap</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <style>
@@ -11,17 +13,7 @@
       overflow: hidden;
     }
     #map { height: 100vh; }
-  </style>
-  <meta
-  charset="UTF-8">
-  
-    
-  <meta
-   
-  name="viewport"
-   
-  content="width=device-width, initial-scale=1.0">
-  
+  </style>  
 </head>
 <body>
 
@@ -31,15 +23,19 @@
 <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 
 <script>
+  document.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    alert('Form submission not allowed!');
+  });
+
+  
+  
   var map = L.map('map').setView([43.07177086067764, -89.40364892237208], 18); // Centered at UWM, Zoom level adjusted
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(map);
-
   var heat = L.heatLayer(Object.values(heatData), { radius: 100, blur: 0 }).addTo(map); // Adjusted radius and blur
 
   for (var key in heatData) {
-    if (heatData.hasOwnProperty(key)) {
-
       var coords = heatData[key];
       var lat = coords[0];
       var lng = coords[1];
@@ -55,7 +51,6 @@
       var marker = L.marker([lat, lng]).addTo(map);
       marker.bindPopup(popupContent);
     }
-  }
 
 </script>
 
