@@ -8,7 +8,10 @@ When we did eventually enter, we thought that the check-in system was overloaded
 
 ## What it does
 
+Our project is effectively split into two different sets of users: organisers and event-goers. 
 
+- Organisers: The ability to create events and a check-in system that uses WiscIDs
+- Event-goers: A map to check out local events with different intensities depending on how many people are in attendance 
 
 ## How we built it
 
