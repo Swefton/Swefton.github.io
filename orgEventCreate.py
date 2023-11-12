@@ -27,4 +27,10 @@ item = {
     
 coll.insert_many([item])
     
-    
+document = coll.find_one({'sec': 1817557989549621983})
+
+events = coll.distinct('sec')
+if 1817557989549621983 in events:
+    print(coll.find_one({'sec': 1817557989549621983}))
+else:
+    print('not found')
