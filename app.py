@@ -1,10 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,jsonify 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import random
 
-
-uri = "mongodb+srv://backupofamrittoo:5aoCkc2tOsvpgkfx@amtesting.imkz74p.mongodb.net/?retryWrites=true&w=majority"
+uri = ""
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 
@@ -12,7 +11,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('organizer-login.html')
+    db = client['events']
+    coll = db["deets"]
+
+    allData = coll.find()
+    for document in coll.find():
+        pass
+
+    return render_template('index.html', location="yes")
 
 @app.route('/login', methods=['POST'])
 def process_input():

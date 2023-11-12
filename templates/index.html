@@ -12,6 +12,16 @@
     }
     #map { height: 100vh; }
   </style>
+  <meta
+  charset="UTF-8">
+  
+    
+  <meta
+   
+  name="viewport"
+   
+  content="width=device-width, initial-scale=1.0">
+  
 </head>
 <body>
 
@@ -25,20 +35,11 @@
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(map);
 
-  // Data for heatmap: [latitude, longitude, intensity]
-  var heatData = {
-    "madhacks": [43.07177086067764, -89.40364892237208, 0.5], // madhacks
-    "union": [43.07622911198155, -89.39980040035239, 0.3], // union
-
-    // Example: coordinates and intensity (0 to 1)
-    // Add more data points with their respective intensity
-    // [latitude, longitude, intensity]
-};
-
   var heat = L.heatLayer(Object.values(heatData), { radius: 100, blur: 0 }).addTo(map); // Adjusted radius and blur
 
   for (var key in heatData) {
     if (heatData.hasOwnProperty(key)) {
+
       var coords = heatData[key];
       var lat = coords[0];
       var lng = coords[1];
