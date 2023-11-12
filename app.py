@@ -21,7 +21,7 @@ def index():
     data = coll.find()
     sol = []
     for document in coll.find():
-        sol.append([document['location'], document['attending'], document['space'], document['lat'], document['lon']])
+        sol.append([document['location'], document['attending'], document['space'], document['lat'], document['lon'], document['sec']])
     return render_template('events.html', data=sol)
 
 @app.route('/login', methods=['POST'])
@@ -68,6 +68,22 @@ def submit_event():
 @app.route('/organizer-login.html')
 def organizer_login():
     return render_template('organizer-login.html')
+
+@app.route('/update-db')
+def update_db():
+    db = client['events']
+    coll = db["deets"]
+    return render_template('organizer-login.html')
+
+@app.route('/map')
+def map():
+    db = client['events']
+    coll = db["deets"]
+    data = coll.find()
+    sol = []
+    for document in coll.find():
+        sol.append([document['location'], document['attending'], document['space'], document['lat'], document['lon'], document['sec']])
+    return render_template('map.html', data=sol)
 
 if __name__ == '__main__':
     app.run(debug=True)

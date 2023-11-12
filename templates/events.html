@@ -64,7 +64,7 @@
           <span>Capacity:</span> {{ i[2] }}
         </div>
         <br>
-        <a href="/map" class="event-button">Check Out Event</a>
+        <a href="/map?lat={{ i[3] }}&lng={{ i[4] }}" class="event-button">Check Out Event</a>
       </li>
       <br>
     {% endfor %}

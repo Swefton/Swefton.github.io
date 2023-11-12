@@ -23,25 +23,15 @@
 <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 
 <script>
-
-    heatData = {};
     var map = L.map('map').setView([43.07177086067764, -89.40364892237208], 18); // Centered at UWM, Zoom level adjusted
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(map);
-    var heat = L.heatLayer(Object.values(heatData), { radius: 100, blur: 0 }).addTo(map); // Adjusted radius and blur
 
-    var coords = heatData[key];
-    var lat = data[0];
-    var lng = data[1];
-    var intensity = coords[2];
-    var popupContent = `
-        <div class="popup">
-        <h3>${key}</h3>
-        <p>Latitude: ${lat}</p>
-        <p>Longitude: ${lng}</p>
-        <p>Intensity: ${intensity}</p>
-        <a href="https://swefton.github.io/announcements.html">Announcements</a>
-        </div>`;
+    const currentUrl = window.location.href;
+
+    var lat = parseFloat(currentUrl.slice(30,38));
+    var lng = parseFloat(currentUrl.slice(44,53));
+
     var marker = L.marker([lat, lng]).addTo(map);
     marker.bindPopup(popupContent);
 

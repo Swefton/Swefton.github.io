@@ -57,26 +57,36 @@
       <th>Longitude</th>
       <td>{{ data.lon }}</td>
     </tr>
+    <tr>
+      <th>Capacity</th>
+      <td>{{ data.capacity }}</td>
+    </tr>
+    <tr>
+      <th>Attending</th>
+      <td>{{ data.attending }}</td>
+    </tr>
+    <tr>
+      <th>Waitlist</th>
+      <td>{{ data.waitlist }}</td>
+    </tr>
   </table>
 
   <h2>Update Values</h2>
   <form>
-    <label for="category1">Event Name:</label>
-    <input type="text" id="category1" name="category1">
+    <label for="category1">Capacity:</label>
+    <input type="text" id="Capacity" name="Capacity">
     <br>
 
-    <label for="category2">Latitude:</label>
-    <input type="text" id="category2" name="category2">
+    <label for="category2">Attending:</label>
+    <input type="text" id="Attending" name="Attending">
     <br>
 
-    <label for="category3">Longitude:</label>
-    <input type="text" id="category3" name="category3">
+    <label for="category3">Waitlist:</label>
+    <input type="text" id="Waitlist" name="Waitlist">
     <br>
 
-    <button type="submit">Update Categories</button>
+    <button type="submit" action="/update-db">Update Categories</button>
   </form>
 
-  <h2>announcements</h2>
-  <div class="announcements">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
 </body>
 </html>
