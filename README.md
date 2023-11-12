@@ -15,6 +15,11 @@ Our project is effectively split into two different sets of users: organizers an
 
 ## How we built it
 
+- Scanning WiscIDs: used OpenCV to scan the bar code on WiscIDs using a connected iPhone
+- Databases with MongoDB: kept track of new events and users at events through databases
+- Creating events: Using location names, long/lat coordinates, and a login secret key to make changes to events
+- Map to check out local events: WIP
+
 ## Challenges we ran into
 - Learning curves associated with front-end development
 - The staticness of Github pages
