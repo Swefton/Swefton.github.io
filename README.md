@@ -1,3 +1,5 @@
+scanUp.py is used for scanning and app.py is the web interface
+
 ## Inspiration
 
 At least two of us weren't registered going into the event so we got up at 8AM to get to Education Sciences, hoping to be one of the first on the waitlist. 
