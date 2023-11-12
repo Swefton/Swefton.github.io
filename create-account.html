@@ -52,36 +52,36 @@
 <body>
 <div class="container">
     <form class="create-account-form" onsubmit="return createAccount()">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <label for="eventname">Event Name:</label>
+        <input type="eventname" id="eventname" name="eventname" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <label for="lat">Latitude:</label>
+        <input type="lat" id="lat" name="lat" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <label for="long">Longitude:</label>
+        <input type="long" id="long" name="long" required>
 
-        <button type="submit">Create Account</button>
+        <button type="submit">Create Event</button>
     </form>
 </div>
 
 <script>
     function createAccount() {
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        const eventname = document.getElementById('eventname').value;
+        const lat = document.getElementById('lat').value;
+        const long = document.getElementById('long').value;
 
         // Store user information in JavaScript object
         const user = {
-            username: username,
-            email: email,
-            password: password
+            eventname: eventname,
+            lat: lat,
+            long: long
         };
 
         console.log('User information:', user);
 
         // Simulate account creation
-        alert('Account created successfully!');
+        alert('Event created successfully!');
 
         return false; // Prevent form submission
     }
