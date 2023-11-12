@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Scrollable Popup</title>
+  <style>
+    #popup-container {
+      display: none;
+      position: fixed;
+      top: 50px;
+      left: 50px;
+      width: 200px;
+      height: 300px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow: auto; /* Enable scrolling */
+    }
+  </style>
+</head>
+<body>
+  <button onclick="togglePopup()">Show Popup</button>
+
+  <div id="popup-container">
+    <h2>Scrollable Popup</h2>
+    <p>This is a scrollable popup content. You can add more text or elements here to make it scrollable.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at tellus at urna condimentum mattis pellentesque id nibh. Ut lectus arcu bibendum at. Viverra maecenas accumsan lacus vel facilisis. Mi eget mauris pharetra et ultrices neque ornare aenean euismod. Egestas pretium aenean pharetra magna ac placerat. Lectus quam id leo in vitae. Porttitor lacus luctus accumsan tortor posuere ac. Elementum eu facilisis sed odio. Eu augue ut lectus arcu bibendum at varius vel pharetra. Libero id faucibus nisl tincidunt eget nullam non. Habitasse platea dictumst quisque sagittis.
+  </div>
+
+  <script>
+    function togglePopup() {
+      var popup = document.getElementById('popup-container');
+      popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

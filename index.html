@@ -43,8 +43,15 @@
       var lat = coords[0];
       var lng = coords[1];
       var intensity = coords[2];
+      var popupContent = `
+        <div class="popup">
+          <h3>${key}</h3>
+          <p>Latitude: ${lat}</p>
+          <p>Longitude: ${lng}</p>
+          <p>Intensity: ${intensity}</p>
+        </div>`;
       var marker = L.marker([lat, lng]).addTo(map);
-      marker.bindPopup(key);
+      marker.bindPopup(popupContent);
     }
   }
 
