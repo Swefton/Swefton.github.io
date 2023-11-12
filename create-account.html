@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .create-account-form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .create-account-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .create-account-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .create-account-form button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form class="create-account-form" onsubmit="return createAccount()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Create Account</button>
+    </form>
+</div>
+
+<script>
+    function createAccount() {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Store user information in JavaScript object
+        const user = {
+            username: username,
+            email: email,
+            password: password
+        };
+
+        console.log('User information:', user);
+
+        // Simulate account creation
+        alert('Account created successfully!');
+
+        return false; // Prevent form submission
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Create Account</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .create-account {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .create-account a {
+            text-decoration: none;
+            color: #04AA6D;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form class="login-form" onsubmit="return login()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="create-account">
+        <p>Don't have an account?</p>
+        <a href="create-account.html">Create Account</a>
+    </div>
+</div>
