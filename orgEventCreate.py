@@ -9,8 +9,7 @@ lon = float(input())
 hashK = hash(locName)
 
 
-uri = ""
-
+uri = "mongodb+srv://backupofamrittoo:5aoCkc2tOsvpgkfx@amtesting.imkz74p.mongodb.net/?retryWrites=true&w=majority"
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Create Account</title>
-    <script src="organizer.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -62,16 +61,15 @@
 </head>
 <body>
 <div class="container">
-    <form class="login-form" onsubmit="return login()">
+    <form class="login-form" action="/login" method="post">
         <label for="secretkey">Event Secret Key:</label>
         <input type="text" id="secretkey" name="secretkey" required>
-
-        <button type="submit" onclick="login">Submit</button>
+        <button type="submit">Submit</button>
     </form>
 
     <div class="create-account">
         <p>Don't have an account?</p>
-        <a href="create-account.html">Create Account</a>
+        <a href="/create-event">Create Account</a>
     </div>
 </div>
 
