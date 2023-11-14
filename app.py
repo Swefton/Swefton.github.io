@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 import random
 import json
 
-uri = "mongodb+srv://backupofamrittoo:5aoCkc2tOsvpgkfx@amtesting.imkz74p.mongodb.net/?retryWrites=true&w=majority"
+uri = ""
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 
