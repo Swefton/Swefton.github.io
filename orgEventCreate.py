@@ -3,7 +3,7 @@ from pymongo.server_api import ServerApi
 
 import random
 
-uri = "mongodb+srv://backupofamrittoo:5aoCkc2tOsvpgkfx@amtesting.imkz74p.mongodb.net/?retryWrites=true&w=majority"
+uri = ""
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 def create():
